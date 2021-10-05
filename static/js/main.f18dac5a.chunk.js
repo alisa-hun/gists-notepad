@@ -1,0 +1,2 @@
+(this["webpackJsonpgists-notepad"]=this["webpackJsonpgists-notepad"]||[]).push([[0],{3:function(e,t,n){"use strict";n.r(t);var s=n(0),o=n.n(s),i=n(1),a=n.n(i);n(8);a.a.render(o.a.createElement("div",{},"Hello Disqo"),document.getElementById("root"))},8:function(e,t,n){}},[[3,1,2]]]);
+//# sourceMappingURL=main.f18dac5a.chunk.js.map

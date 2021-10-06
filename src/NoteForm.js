@@ -10,10 +10,10 @@ function NoteForm({onAdd}) {
             setTitle("");
             SetNote("")
         }}>
-            <input type="text" value={title} onChange={(e) => {
+            <input required type="text" value={title} onChange={(e) => {
                 setTitle(e.target.value);
             }}/>
-            <textarea value={note} onChange={(e) => {
+            <textarea required value={note} onChange={(e) => {
                 SetNote(e.target.value);
             }}>{note}</textarea>
             <button>Add</button>

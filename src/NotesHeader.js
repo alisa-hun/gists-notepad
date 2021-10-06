@@ -7,7 +7,7 @@ function NotesHeader({onSave}) {
             e.preventDefault();
             onSave(notesTitle)
         }}>
-            <input type="text" value={notesTitle} onChange={(e) => {
+            <input required minlength="4" maxlength="255" type="text" value={notesTitle} onChange={(e) => {
                 setNoteTitle(e.target.value)
             }}/>
 

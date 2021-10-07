@@ -11,7 +11,6 @@ function App() {
     localStorage.notes ? JSON.parse(localStorage.notes) : []
   );
 
-  
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
@@ -19,18 +18,29 @@ function App() {
   return (
     <div className="App">
       <NotesHeader onSave={(notesTitle) => {
-        const files = notes.map((note) => {return `{"${note.title}": {"content":"${note.note}"}`});
+        if (!notes.length) {
+          return console.log(Error("At least one note should be added"))
+        }
+
+        let notes_filtered = notes.map((note) => ({"filename": note.title, "content": note.note}));
+
+        let files = {};
+        notes_filtered.forEach(function(note, index) {
+            let key = new Date().getTime() + (Math.floor(Math.random() * 100));
+            files[key + ''] = note;
+        })
+
         const requestOpts = {
           method: 'POST',
-          cache: 'no-cache',
+          cache: 'no-cache', 
+          credentials: 'same-origin',
           referrerPolicy: 'no-referrer',
           headers: {
               'Accept': 'application/vnd.github.v3+json',
-              'Authorization': 'token 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',
+              'Authorization': 'token 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',
               'Content-Type': 'application/json'
           },
-          body:`{"description":"${notesTitle}","public":true,"files":${JSON.stringify(files)}}`
-          
+          body: JSON.stringify({"description": notesTitle, "public": true, "files": files})
         };
 
         fetch("https://api.github.com/gists", requestOpts)
@@ -38,8 +48,6 @@ function App() {
           return response.json()
         })
         .then((response) => {})
-
-         console.log("Save or not, that's a question!")
       }}/>
       <NoteForm onAdd={(title, note) => {
           setNotes([

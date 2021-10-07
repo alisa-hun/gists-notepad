@@ -1,22 +1,23 @@
 import { useState } from "react";
 
 function NoteForm({onAdd}) {
-    const [title, setTitle] = useState("Untitled");
+    const [title, setTitle] = useState("");
     const [note, SetNote] = useState("");
     return (
-        <form onSubmit={(e) => {
+        <form id="notes_form" className="d-flex flex-column" onSubmit={(e) => {
             e.preventDefault();
             onAdd(title, note);
             setTitle("");
-            SetNote("")
+            SetNote("");
         }}>
-            <input required type="text" value={title} onChange={(e) => {
+            <h2>My notes</h2>
+            <input placeholder="Enter note title..." required type="text" value={title} onChange={(e) => {
                 setTitle(e.target.value);
             }}/>
-            <textarea required value={note} onChange={(e) => {
+            <textarea placeholder="Enter note..." required value={note} onChange={(e) => {
                 SetNote(e.target.value);
             }}>{note}</textarea>
-            <button>Add</button>
+            <button className="btn-green txt-white">Add</button>
         </form>
     )
 }

@@ -78,6 +78,7 @@ h2 {
 @media only screen and (min-width: 320px) and (max-width: 800px) {
   .d-flex {
     display: flex;
+    gap: 1rem;
     flex-flow: column;
     justify-content: unset;
   }
@@ -120,13 +121,7 @@ label {
 .notes-cont {
   margin-bottom: 2rem;
 }
-/*
 
-- "My Notes" header: 18px
-- All buttons: 14px
-Page is responsive:
-- Max size is 1024 pixels
-- Minimum size is 320 pixels width
-- Text sizes don't need to scale
-- Buttons will drop below the input groups
-*/
+.notes-cont input {
+  margin-right: 1rem;
+}

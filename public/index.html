@@ -3,8 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--<link rel="icon" href="https://www.disqo.com/wp-content/uploads/2021/04/cropped-red-logo-32x32.png" sizes="32x32">
-    <script src="https://gist.github.com/alisa-hun/58dbab6bf2b99a2775cb769c3dc7e009.js"></script>-->
+    <style>
+      .highcharts-figure, .highcharts-data-table table {
+          min-width: 320px; 
+          max-width: 1024px;
+      }
+    </style>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <title>Notepad</title>
   </head>
   <body>
@@ -12,6 +18,16 @@
       <noscript>You need to enable JavaScript to run this app.</noscript>
       <h1>Notepad Application</h1>
       <div id="root"></div>
+      <div>
+        <figure class="highcharts-figure">
+          <div id="gistsContainer"></div>
+        </figure>
+        <input type="button" value="Load more..." onclick="getGists();" />
+        <figure class="highcharts-figure">
+            <div id="filesContainer"></div>
+        </figure>
+        <input type="button" value="Load more..." onclick="getGistsFiles();" />
+      </div>
     <div>
   </body>
 </html>

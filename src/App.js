@@ -3,6 +3,8 @@ import Notes from './Notes';
 import NotesHeader from "./NotesHeader";
 import NoteForm from "./NoteForm";
 import {useState, useEffect} from "react";
+import "./GistsFilesStat";
+import "./GistsStat";
 
 function App() {
   const [notesTitle, setNotesTitle] = useState("");
@@ -15,53 +17,59 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
+  var key = new Date().getTime() + (Math.floor(Math.random() * 100));
+  
   return (
     <div className="App">
-      <NotesHeader onSave={(notesTitle) => {
-        if (!notes.length) {
-          return console.log(Error("At least one note should be added"))
-        }
+      <NotesHeader 
+        onSave={(notesTitle) => {
+          if (!notes.length) {
+            return console.log(Error("At least one note should be added"))
+          }
 
-        let notes_filtered = notes.map((note) => ({"filename": note.title, "content": note.note}));
+          let notes_filtered = notes.map((note) => ({"filename": note.title, "content": note.note}));
 
-        let files = {};
-        notes_filtered.forEach(function(note, index) {
-            let key = new Date().getTime() + (Math.floor(Math.random() * 100));
-            files[key + ''] = note;
-        })
+          let files = {};
+          notes_filtered.forEach(function(note, index) {
+              files[key + ''] = note;
+          });
 
-        const requestOpts = {
-          method: 'POST',
-          cache: 'no-cache', 
-          credentials: 'same-origin',
-          referrerPolicy: 'no-referrer',
-          headers: {
-              'Accept': 'application/vnd.github.v3+json',
-              'Authorization': 'token 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',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({"description": notesTitle, "public": true, "files": files})
-        };
+          const requestOpts = {
+            method: 'POST',
+            cache: 'no-cache', 
+            credentials: 'same-origin',
+            referrerPolicy: 'no-referrer',
+            headers: {
+                'Accept': 'application/vnd.github.v3+json',
+                'Authorization': 'token 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',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"description": notesTitle, "public": true, "files": files})
+          };
 
-        fetch("https://api.github.com/gists", requestOpts)
-        .then((response) => {
-          return response.json()
-        })
-        .then((response) => {})
-      }}/>
+          fetch("https://api.github.com/gists", requestOpts)
+            .then((response) => {
+              return response.json()
+            })
+            .then((response) => {debugger;})
+        }}
+        viewStats={() => {
+        //  getGists();
+        //  getGistsFiles();
+        }}
+        />
       <NoteForm onAdd={(title, note) => {
           setNotes([
             ...notes,
             {
-              id: Math.random(),
+              id: key,
               title: title,
               note: note
             }
           ])
       }}/>
-      <Notes notes={notes} onSave={() => {
-         console.log("Save or not, that's a question!")
-      }}/>
+      <Notes notes={notes} 
+        onDelete={(note) => {setNotes(notes.filter((el) => el.id != note.id))}}/>
     </div>
   );
 }

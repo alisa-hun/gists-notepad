@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NotesHeader({onSave}) {
+function NotesHeader({onSave, viewStats}) {
     const [notesTitle, setNoteTitle] = useState("");
     return (
         <form id="notepad_form" className="d-flex" onSubmit={(e) => {
@@ -12,7 +12,7 @@ function NotesHeader({onSave}) {
                  value={notesTitle} onChange={(e) => {setNoteTitle(e.target.value)}} required/>
             </div>
             <div className="form-col-3 flex-end">
-                <button className="btn-white">View Stats</button>
+                <button className="btn-white" onClick={() => { viewStats() }}>View Stats</button>
                 <button className="btn-blue txt-white" type="submit">Save</button>
                 <button className="btn-red txt-white">Delete</button>
             </div>

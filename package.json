@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.22.0",
     "chart.js": "^3.5.1",
+    "highcharts": "^9.2.2",
     "ng2-charts": "^2.4.3",
     "react": "^17.0.2",
     "react-chartjs-2": "^3.0.5",

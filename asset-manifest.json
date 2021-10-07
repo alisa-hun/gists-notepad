@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/gists-notepad/static/css/main.a6c5b4b1.chunk.css",
-    "main.js": "/gists-notepad/static/js/main.09659bd3.chunk.js",
-    "main.js.map": "/gists-notepad/static/js/main.09659bd3.chunk.js.map",
+    "main.css": "/gists-notepad/static/css/main.03af5524.chunk.css",
+    "main.js": "/gists-notepad/static/js/main.26b18ec1.chunk.js",
+    "main.js.map": "/gists-notepad/static/js/main.26b18ec1.chunk.js.map",
     "runtime-main.js": "/gists-notepad/static/js/runtime-main.0847ca21.js",
     "runtime-main.js.map": "/gists-notepad/static/js/runtime-main.0847ca21.js.map",
-    "static/js/2.e78cd5aa.chunk.js": "/gists-notepad/static/js/2.e78cd5aa.chunk.js",
-    "static/js/2.e78cd5aa.chunk.js.map": "/gists-notepad/static/js/2.e78cd5aa.chunk.js.map",
+    "static/js/2.1112f464.chunk.js": "/gists-notepad/static/js/2.1112f464.chunk.js",
+    "static/js/2.1112f464.chunk.js.map": "/gists-notepad/static/js/2.1112f464.chunk.js.map",
     "index.html": "/gists-notepad/index.html",
-    "static/css/main.a6c5b4b1.chunk.css.map": "/gists-notepad/static/css/main.a6c5b4b1.chunk.css.map",
-    "static/js/2.e78cd5aa.chunk.js.LICENSE.txt": "/gists-notepad/static/js/2.e78cd5aa.chunk.js.LICENSE.txt"
+    "static/css/main.03af5524.chunk.css.map": "/gists-notepad/static/css/main.03af5524.chunk.css.map",
+    "static/js/2.1112f464.chunk.js.LICENSE.txt": "/gists-notepad/static/js/2.1112f464.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0847ca21.js",
-    "static/js/2.e78cd5aa.chunk.js",
-    "static/css/main.a6c5b4b1.chunk.css",
-    "static/js/main.09659bd3.chunk.js"
+    "static/js/2.1112f464.chunk.js",
+    "static/css/main.03af5524.chunk.css",
+    "static/js/main.26b18ec1.chunk.js"
   ]
 }

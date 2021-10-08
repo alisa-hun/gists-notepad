@@ -41,7 +41,7 @@ function App() {
             referrerPolicy: 'no-referrer',
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token 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',
+                'Authorization': 'token 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',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({"description": notesTitle, "public": true, "files": files})
